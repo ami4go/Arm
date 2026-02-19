@@ -1,0 +1,15 @@
+.gradle/
+build/
+*.iml
+.idea/
+local.properties
+app/build/
+app/src/main/cpp/whisper.cpp/
+app/src/main/cpp/llama.cpp/
+app/src/main/assets/models/*.bin
+app/src/main/assets/models/*.gguf
+app/src/main/assets/models/*.onnx
+*.apk
+*.aab
+
+.cxx/

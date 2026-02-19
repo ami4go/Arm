@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_dark"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🌐 Arm Translator"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="On-Device Speech Translation • NEON Optimized"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Language Selector Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="16dp">
+
+            <!-- Source Language -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bg_language_card"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FROM"
+                    android:textColor="@color/accent_blue"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spinner_source_lang"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/white" />
+            </LinearLayout>
+
+            <!-- Swap Button -->
+            <ImageButton
+                android:id="@+id/btn_swap_langs"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_circle_button"
+                android:contentDescription="Swap languages"
+                android:src="@drawable/ic_swap"
+                android:padding="12dp"
+                app:tint="@color/white" />
+
+            <!-- Target Language -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bg_language_card"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TO"
+                    android:textColor="@color/accent_green"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spinner_target_lang"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Source Text Card -->
+        <LinearLayout
+            android:id="@+id/card_source"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_text_card"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:minHeight="100dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📝 Source Text"
+                android:textColor="@color/accent_blue"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_source_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tap the mic button and speak..."
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:lineSpacingMultiplier="1.3" />
+        </LinearLayout>
+
+        <!-- Translated Text Card -->
+        <LinearLayout
+            android:id="@+id/card_target"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_text_card_green"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:minHeight="100dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🌐 Translation"
+                android:textColor="@color/accent_green"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_translated_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Translation will appear here..."
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:lineSpacingMultiplier="1.3" />
+        </LinearLayout>
+
+        <!-- Mic Button (Center) -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <ImageButton
+                android:id="@+id/btn_mic"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_mic_button"
+                android:contentDescription="Record speech"
+                android:src="@drawable/ic_mic"
+                android:padding="20dp"
+                android:elevation="8dp"
+                app:tint="@color/white" />
+        </FrameLayout>
+
+        <!-- Status Bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_status_card"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:gravity="center"
+            android:layout_marginBottom="8dp">
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:visibility="gone"
+                android:progressTint="@color/accent_blue"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Initializing..."
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- Latency Info -->
+        <TextView
+            android:id="@+id/tv_latency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/text_tertiary"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:fontFamily="monospace" />
+
+        <!-- Footer -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Powered by Arm NEON • whisper.cpp • llama.cpp • sherpa-onnx"
+            android:textColor="@color/text_tertiary"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:paddingTop="16dp" />
+
+    </LinearLayout>
+</ScrollView>
